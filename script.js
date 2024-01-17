@@ -41,10 +41,10 @@ let guesses = document.getElementById("pastGuesses");
 let end = document.getElementById("endScreen");
 let curr = "";
 // let words = ['hippo', 'world']
-let target = words[Math.floor(Math.random() * words.length)];
+let target = words[Math.floor(Math.random() * words.length)].toLowerCase();
+console.log(target);
 let tMap = new Map();
-
-console.log(keys);
+// console.log(keys);
 const alphabet = new Map([['q', 0], ['w', 1], ['e', 2], ['r', 3], ['t', 4], ['y', 5], ['u', 6], ['i', 7], ['o', 8], ['p', 9], ['a', 10], ['s', 11], ['d', 12], ['f', 13], ['g', 14], ['h', 15], ['j', 16], ['k', 17], ['l', 18], ['z', 20], ['x', 21], ['c', 22], ['v', 23], ['b', 24], ['n', 25], ['m', 26]]);
 let status = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
 // let regex = /^[a-zA-Z]+$/;
@@ -107,36 +107,51 @@ function addNewWord() {
     let row = document.createElement('div')
     row.classList.add('guesses');
     cMap = new Map();
+    currR = [];
     for (let i = 0; i < letters.length; i++) {
         let l = document.createElement('div');
         l.classList.add('letter2');
         currL = letters[i].innerHTML.toLowerCase();
         l.innerHTML = currL.toUpperCase();
 
+        if (currL == target.substring(i, i + 1)) {
+            if (cMap.has(currL)) {
+                cMap.set(currL, cMap.get(currL) + 1);
+            } else {
+                cMap.set(currL, 1);
+            }
+            l.classList.add('green');
+            status[alphabet.get(currL)] = "G";
+            keys[alphabet.get(currL)].classList.add('green');
+            keys[alphabet.get(currL)].classList.remove('yellow', 'grey')
+        }
+        row.appendChild(l);
+        currR.push(l);
+    }
+    for (let i = 0; i < letters.length; i++) {
+        currL = letters[i].innerHTML.toLowerCase();
         if (cMap.has(currL)) {
             cMap.set(currL, cMap.get(currL) + 1);
         } else {
             cMap.set(currL, 1);
         }
-
-        if (currL == target.substring(i, i + 1)) {
-            l.classList.add('green');
-            status[alphabet.get(currL)] = "G";
-            keys[alphabet.get(currL)].classList.add('green');
-        } else if (tMap.has(currL) && cMap.get(currL) <= tMap.get(currL)) {
-            l.classList.add('yellow');
-            if (status[alphabet.get(currL)] != "G") {
-                status[alphabet.get(currL)] = "Y";
-                keys[alphabet.get(currL)].classList.add('yellow');
-            }
-        } else {
-            l.classList.add('grey');
-            if (status[alphabet.get(currL)] == "") {
-                status[alphabet.get(currL)] = "Gr";
-                keys[alphabet.get(currL)].classList.add('grey');
+        if (currL != target.substring(i, i + 1)) {
+            if (tMap.has(currL) && cMap.get(currL) <= tMap.get(currL)) {
+                currR[i].classList.add('yellow');
+                if (status[alphabet.get(currL)] != "G") {
+                    status[alphabet.get(currL)] = "Y";
+                    keys[alphabet.get(currL)].classList.add('yellow');
+                    keys[alphabet.get(currL)].classList.remove('grey')
+                }
+            } else {
+                currR[i].classList.add('grey');
+                if (status[alphabet.get(currL)] == "") {
+                    status[alphabet.get(currL)] = "Gr";
+                    keys[alphabet.get(currL)].classList.add('grey');
+                }
             }
         }
-        row.appendChild(l);
+
     }
     guesses.appendChild(row);
     guesses.scrollTop = guesses.scrollHeight;
