@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordHippo</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body class="blackBg fadeIn">
+    <button onclick="surrender()" id="giveUp">🏳️</button>
+    <div class="overlay" id="endScreen">
+        <h1 id="winStatement">You Won!!</h1>
+        <button onclick="restart()">↻</button>
+    </div>
+    <div class="flexContainer blackBg">
+        <div>
+            <div id="scrollBottom">
+                <div id="pastGuesses">
+                </div>
+            </div>
+            <div class="guesses dropDown delay">
+                <div class="letter"></div>
+                <div class="letter"></div>
+                <div class="letter"></div>
+                <div class="letter"></div>
+                <div class="letter"></div>
+            </div>
+            <div class="keyboard space-grotesk">
+                <div class="keyRow dropDown delay">
+                    <button class="key" onclick="onClick(this)" data-key="q">Q</button>
+                    <button class="key" onclick="onClick(this)" data-key="w">W</button>
+                    <button class="key" onclick="onClick(this)" data-key="e">E</button>
+                    <button class="key" onclick="onClick(this)" data-key="r">R</button>
+                    <button class="key" onclick="onClick(this)" data-key="t">T</button>
+                    <button class="key" onclick="onClick(this)" data-key="y">Y</button>
+                    <button class="key" onclick="onClick(this)" data-key="u">U</button>
+                    <button class="key" onclick="onClick(this)" data-key="i">I</button>
+                    <button class="key" onclick="onClick(this)" data-key="o">O</button>
+                    <button class="key" onclick="onClick(this)" data-key="p">P</button>
+                </div>
+                <div class="keyRow dropIn delay">
+                    <button class="key" onclick="onClick(this)" data-key="a">A</button>
+                    <button class="key" onclick="onClick(this)" data-key="s">S</button>
+                    <button class="key" onclick="onClick(this)" data-key="d">D</button>
+                    <button class="key" onclick="onClick(this)" data-key="f">F</button>
+                    <button class="key" onclick="onClick(this)" data-key="g">G</button>
+                    <button class="key" onclick="onClick(this)" data-key="h">H</button>
+                    <button class="key" onclick="onClick(this)" data-key="j">J</button>
+                    <button class="key" onclick="onClick(this)" data-key="k">K</button>
+                    <button class="key" onclick="onClick(this)" data-key="l">L</button>
+                </div>
+                <div class="keyRow dropIn delay">
+                    <button class="key" onclick="onClick(this)" data-key="*">ENTER</button>
+                    <button class="key" onclick="onClick(this)" data-key="z">Z</button>
+                    <button class="key" onclick="onClick(this)" data-key="x">X</button>
+                    <button class="key" onclick="onClick(this)" data-key="c">C</button>
+                    <button class="key" onclick="onClick(this)" data-key="v">V</button>
+                    <button class="key" onclick="onClick(this)" data-key="b">B</button>
+                    <button class="key" onclick="onClick(this)" data-key="n">N</button>
+                    <button class="key" onclick="onClick(this)" data-key="m">M</button>
+                    <button class="key" onclick="onClick(this)" data-key="-">⌫</button>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+</body>
+
+</html>

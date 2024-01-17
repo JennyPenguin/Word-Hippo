@@ -1,0 +1,294 @@
+/* Animations */
+
+@keyframes fadeOut {
+    0% {
+        background: url(pictures/Scary_Hippo.png);
+        background-size: cover;
+        border-color: transparent;
+        filter: opacity(100);
+    }
+
+    100% {
+        background: url(pictures/Scary_Hippo.png), ;
+        background-size: cover;
+        border-color: transparent;
+        filter: opacity(0);
+    }
+
+}
+
+@keyframes dropDown {
+    0% {
+        transform: translateY(-50rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes dropUp {
+    0% {
+        transform: translateY(50rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeOut 1.5s backwards;
+}
+
+.dropIn {
+    animation: dropUp 1s backwards;
+}
+
+.dropDown {
+    animation: dropDown 1s backwards;
+}
+
+.delay {
+    animation-delay: 1.5s;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: "Lemon";
+    src: url('fonts/Lemon-Regular.ttf');
+}
+
+@font-face {
+    font-family: "MooLahLah";
+    src: url('fonts/MooLahLah-Regular.ttf');
+}
+
+@font-face {
+    font-family: "SpaceGrotesk";
+    src: url('fonts/SpaceGrotesk-VariableFont_wght.ttf');
+}
+
+
+@font-face {
+    font-family: "Rubik";
+    src: url('fonts/RubikBrokenFax-Regular.ttf');
+}
+
+.space-grotesk {
+    font-family: 'SpaceGrotesk';
+}
+
+.lemon {
+    font-family: 'Lemon';
+}
+
+.rubik {
+    font-family: 'Rubik';
+}
+
+.moo {
+    font-family: 'MooLahLah';
+}
+
+.keyRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    row-gap: 1ppx;
+}
+
+.key:hover,
+.key:focus {
+    transform: translateY(0.1rem);
+}
+
+/* General Effects */
+
+button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    transition: transform 0.1s linear;
+}
+
+button:hover,
+button:focus {
+    transform: translateY(0.5rem);
+}
+
+html,
+body,
+.flexContainer {
+    height: 100%;
+    margin: 0;
+}
+
+.large {
+    text-align: center;
+    flex: 0 0 100%;
+    font-size: 500%;
+    letter-spacing: 2rem;
+    line-height: 1.5em;
+}
+
+.reflect {
+    -webkit-box-reflect: below 0 linear-gradient(transparent, #0004)
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center space-around;
+    flex-wrap: wrap;
+}
+
+.round {
+    border-radius: 2.5rem;
+}
+
+.btn-medium {
+    padding: 0.5rem 1.2rem;
+    font-size: xx-large;
+}
+
+.blackBg {
+    background: #000;
+}
+
+.scaryBg {
+    background: url(pictures/Scary_Hippo.png);
+    background-size: cover;
+    border-color: transparent;
+}
+
+.noBg {
+    background: none;
+}
+
+.whiteText {
+    color: #fff;
+}
+
+.shadow {
+    box-shadow: 6px 6px 40px rgba(33, 33, 33, 0.6), 6px 6px 20px rgba(33, 33, 33, 0.6) inset;
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.overlay h1 {
+    color: #fff;
+    font-size: 400%;
+    font-family: "SpaceGrotesk";
+    text-align: center;
+    flex-basis: 100%;
+}
+
+.overlay button {
+    background-color: #fff;
+    border-radius: 5rem;
+    padding: 10px 20px;
+}
+
+
+/* Word Hippo Specifics */
+
+.key {
+    border-radius: 3px;
+    color: #2d2d2d;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem;
+}
+
+.guesses {
+    display: flex;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    column-gap: 10px;
+    color: #fff;
+    justify-content: center;
+    align-content: center;
+}
+
+#pastGuesses {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    max-height: 50vh;
+    overflow: scroll;
+}
+
+#pastGuesses::-webkit-scrollbar {
+    display: none;
+}
+
+#pastGuesses .guesses {
+    margin: 10px;
+}
+
+.letter,
+.letter2 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 70px;
+    font-size: xx-large;
+    background-color: #212121;
+    border: solid 1px #fff;
+}
+
+.green {
+    background-color: #4e8b67;
+    border: solid 1px #4e8b67;
+}
+
+.grey {
+    background-color: #828282;
+    border: solid 1px #828282;
+}
+
+.yellow {
+    background-color: #e6d64c;
+    border: solid 1px #e6d64c;
+}
+
+#giveUp {
+    position: fixed;
+    font-size: x-large;
+    margin: 10px;
+    background: transparent;
+    border: transparent;
+}
+
+#scrollBottom {
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
